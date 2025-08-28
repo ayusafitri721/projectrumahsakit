@@ -36,6 +36,10 @@
         footer {
             background: #2c5aa0;
         }
+        .navbar-nav .nav-link.active {
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -51,6 +55,31 @@
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Menu Navigation - TAMBAHAN BARU -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('dashboard') }}">
+                            <i class="fas fa-home me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dktr.index') }}">
+                            <i class="fas fa-user-md me-2"></i>Data Dokter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('ruangan.index') }}">
+                            <i class="fas fa-door-open me-2"></i>Data Ruangan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('pasien.index') }}">
+                            <i class="fas fa-user-md me-2"></i>Data Pasien
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- User Profile Dropdown - TETAP SAMA -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
@@ -80,7 +109,7 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Content - SEMUA TETAP SAMA PERSIS -->
     <div class="container mt-4">
         <!-- Alert Messages -->
         @if(session('success'))
@@ -97,7 +126,7 @@
             </div>
         @endif
 
-        <!-- Welcome Card -->
+        <!-- Welcome Card - TETAP ADA -->
         <div class="row mb-4">
             <div class="col-12">
                 <div class="card bg-primary text-white">
@@ -130,7 +159,7 @@
             </div>
         </div>
 
-        <!-- Quick Actions -->
+        <!-- Quick Actions - TETAP ADA -->
         <div class="row mb-4">
             <div class="col-12">
                 <h3 class="mb-3 fw-bold">Menu Utama</h3>
@@ -145,23 +174,23 @@
             </div>
             <div class="col-md-4 mb-3">
                 <div class="card h-100 text-center p-3">
-                    <i class="fas fa-calendar-alt text-success mb-3" style="font-size: 3rem;"></i>
-                    <h5 class="card-title">Jadwal</h5>
-                    <p class="card-text">Lihat dan atur jadwal konsultasi</p>
-                    <a href="#" class="btn btn-success">Lihat Jadwal</a>
+                    <i class="fas fa-door-open text-info mb-3" style="font-size: 3rem;"></i>
+                    <h5 class="card-title">Data Ruangan</h5>
+                    <p class="card-text">Kelola informasi ruangan rumah sakit</p>
+                    <a href="{{ route('ruangan.index') }}" class="btn btn-info">Lihat Data</a>
                 </div>
             </div>
             <div class="col-md-4 mb-3">
                 <div class="card h-100 text-center p-3">
                     <i class="fas fa-chart-bar text-warning mb-3" style="font-size: 3rem;"></i>
-                    <h5 class="card-title">Laporan</h5>
-                    <p class="card-text">Lihat statistik dan laporan sistem</p>
-                    <a href="#" class="btn btn-warning text-white">Lihat Laporan</a>
+                    <h5 class="card-title">Pasien</h5>
+                    <p class="card-text">Lihat Semua Pasien</p>
+                    <a href="{{ route('pasien.index') }}" class="btn btn-warning text-white">Lihat Pasien</a>
                 </div>
             </div>
         </div>
 
-        <!-- Statistics Cards -->
+        <!-- Statistics Cards - TETAP ADA -->
         <div class="row">
             <div class="col-12">
                 <h3 class="mb-3 fw-bold">Statistik</h3>
@@ -213,7 +242,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer - TETAP ADA -->
     <footer class="text-white text-center py-3 mt-5 shadow-lg">
         <div class="container">
             <p class="mb-0">&copy; {{ date('Y') }} Healthcare App. All rights reserved.</p>

@@ -104,77 +104,75 @@
         }
         
         /* Hero Section */
-     /* Hero Section */
-.hero {
-    position: relative;
-}
+        .hero {
+            position: relative;
+        }
 
-.hero-image-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh; /* ✅ full layar */
-    margin-left: calc(-50vw + 50%);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .hero-image-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            margin-left: calc(-50vw + 50%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.hero-image-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* ✅ overlay gelap biar teks lebih jelas */
-    z-index: 1;
-}
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
 
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-    color: white; /* ✅ semua teks default putih */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-}
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
 
-.hero-overlay h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    color: #fff; /* ✅ pastikan putih */
-}
+        .hero-overlay h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: #fff;
+        }
 
-.hero-overlay p {
-    font-size: 1.4rem;
-    margin-bottom: 3rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    opacity: 0.95;
-    color: #f1f1f1; /* ✅ abu muda biar kontras */
-}
+        .hero-overlay p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            opacity: 0.95;
+            color: #f1f1f1;
+        }
 
-        
         .btn-group-custom {
             display: flex;
             justify-content: center;
@@ -332,13 +330,13 @@
         }
         
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero-overlay h1 {
                 font-size: 2.2rem;
                 flex-direction: column;
                 gap: 10px;
             }
             
-            .hero p {
+            .hero-overlay p {
                 font-size: 1.1rem;
             }
             
@@ -378,10 +376,10 @@
                 <li><a href="#layanan">Layanan</a></li>
                 <li><a href="#kontak">Kontak</a></li>
                 <div class="nav-auth-buttons">
-                    <a href="{{ route('login') }}" class="nav-btn nav-btn-login">
+                    <a href="/login" class="nav-btn nav-btn-login">
                         <i class="fas fa-sign-in-alt"></i>Login
                     </a>
-                    <a href="{{ route('register') }}" class="nav-btn nav-btn-register">
+                    <a href="/register" class="nav-btn nav-btn-register">
                         <i class="fas fa-user-plus"></i>Daftar
                     </a>
                 </div>
@@ -389,32 +387,30 @@
         </div>
     </nav>
 
-  <!-- Hero Section -->
-<section class="hero" id="home">
-    <div class="hero-image-container">
-        <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1920&h=1080&fit=crop" alt="Rumah Sakit">
-        
-        <!-- Overlay teks -->
-        <div class="hero-overlay">
-            <h1>
-                <i class="fas fa-hospital-alt"></i>
-                Sistem Informasi Rumah Sakit Amry
-            </h1>
-            <p>Platform digital untuk manajemen rumah sakit yang efisien dan modern</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1920&h=1080&fit=crop" alt="Rumah Sakit">
             
-            <div class="btn-group-custom">
-                <a href="{{ route('dktr.index') }}" class="btn btn-primary-custom">
-                    <i class="fas fa-tachometer-alt"></i>Dashboard
-                </a>
-                <a href="{{ route('password.request') }}" class="btn btn-outline-custom">
-                    <i class="fas fa-unlock-alt"></i>Reset Password
-                </a>
+            <!-- Overlay teks -->
+            <div class="hero-overlay">
+                <h1>
+                    <i class="fas fa-hospital-alt"></i>
+                    Sistem Informasi Rumah Sakit Amry
+                </h1>
+                <p>Platform digital untuk manajemen rumah sakit yang efisien dan modern</p>
+                
+                <div class="btn-group-custom">
+                    <a href="/login" class="btn btn-primary-custom">
+                        <i class="fas fa-sign-in-alt"></i>Masuk ke Sistem
+                    </a>
+                    <a href="#layanan" class="btn btn-outline-custom">
+                        <i class="fas fa-info-circle"></i>Pelajari Lebih Lanjut
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 
     <!-- Features Section -->
     <section class="features" id="layanan">
@@ -424,36 +420,36 @@
                 <div class="feature-icon">
                     <i class="fas fa-user-md"></i>
                 </div>
-                <h3>Registrasi & Otomatis</h3>
-                <p>User dapat melakukan registrasi dan otomatis memiliki role sebagai user dengan sistem yang mudah dan aman</p>
+                <h3>Manajemen Dokter</h3>
+                <p>Kelola data dokter dengan mudah termasuk spesialisasi, jadwal praktik, dan informasi kontak</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <h3>Manajemen Ruangan</h3>
+                <p>Sistem manajemen ruangan rumah sakit dengan informasi daya tampung dan lokasi yang lengkap</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-sign-in-alt"></i>
                 </div>
-                <h3>Login Terintegrasi</h3>
-                <p>Sebelum memasuki halaman utama, user harus melakukan login dengan username dan password yang sudah terdaftar</p>
+                <h3>Sistem Login Aman</h3>
+                <p>Sistem autentikasi yang aman dengan fitur registrasi otomatis dan manajemen pengguna terintegrasi</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-key"></i>
                 </div>
                 <h3>Reset Password</h3>
-                <p>Tambahkan feature reset password dengan ketentuan exercise registrasi level 2 untuk keamanan ekstra</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-upload"></i>
-                </div>
-                <h3>Upload Foto Profil</h3>
-                <p>Tambahkan upload foto dan tampilkan upload foto profil setelah login untuk personalisasi akun</p>
+                <p>Fitur reset password yang aman dengan validasi email untuk memudahkan pemulihan akun pengguna</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Sistem Informasi Rumah Sakit. All rights reserved.</p>
+        <p>&copy; 2025 Sistem Informasi Rumah Sakit Amry. All rights reserved.</p>
     </footer>
 </body>
 </html>

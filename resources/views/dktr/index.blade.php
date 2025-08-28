@@ -44,7 +44,7 @@
         </div>
         <div class="float-right">
             <a class="btn btn-success" href="{{ route('dktr.create') }}"> Input Dokter</a>
-            <a class="btn btn-success" href="{{ route('home') }}"> Home</a>
+            <a class="btn btn-success" href="{{ route('dashboard') }}"> Dashboard</a>
         </div>
     </div>
 </div>
@@ -57,12 +57,14 @@
 
 <table class="table table-bordered">
     <tr>
-        <th width="20px" class="text-center">Id</th>
+        <th width="20px" class="text-center">No</th>
         <th>ID Dokter</th>
-        <th width="280px" class="text-center">Nama Dokter</th>
-        <th width="280px" class="text-center">Tanggal Lahir</th>
-        <th width="280px" class="text-center">Spesialis</th>
-        <th width="20%" class="text-center">Action</th>
+        <th class="text-center">Nama Dokter</th>
+        <th class="text-center">Tanggal Lahir</th>
+        <th class="text-center">Spesialisasi</th>
+        <th class="text-center">Nama Ruangan</th>
+        <th class="text-center">Lokasi Ruangan</th>
+        <th class="text-center">Aksi</th>
     </tr>
     @foreach ($dktr as $dokter)
     <tr>
@@ -71,10 +73,16 @@
         <td>{{ $dokter->namaDokter }}</td>
         <td>{{ $dokter->tanggalLahir ?? '-' }}</td>
         <td>{{ $dokter->spesialis ?? '-' }}</td>
+        <td>{{ $dokter->lokasiPraktik ?? '-' }}</td>
+        <td>
+            @php
+                $ruangan = $dokter->ruangan;
+            @endphp
+            {{ $ruangan ? $ruangan->lokasi : '-' }}
+        </td>
         <td class="text-center">
             <form action="{{ route('dktr.destroy', $dokter->id) }}" method="POST">
-                <a class="btn btn-info btn-sm" href="{{ route('dktr.show', $dokter->id) }}">Show</a>
-                <a class="btn btn-primary btn-sm" href="{{ route('dktr.edit', $dokter->id) }}">Edit</a>
+                <a class="btn btn-warning btn-sm" href="{{ route('dktr.edit', $dokter->id) }}">Edit</a>
 
                 @csrf
                 @method('DELETE')
